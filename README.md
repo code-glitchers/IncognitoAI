@@ -1,17 +1,25 @@
-# 🛡️ PrivateAI - Local Offline RAG Assistant
+# 🛡️ IncognitoAI – Local Offline RAG Assistant
 
-A fully private, 100% offline AI chat assistant that runs on your local machine using [Ollama](https://ollama.com) and [Streamlit](https://streamlit.io). Chat with your PDF, TXT, and Markdown files safely.
+A fully private, **100% offline AI chat assistant** that runs on your local machine using [Ollama](https://ollama.com) and [Streamlit](https://streamlit.io).  
+Chat with your **PDF, TXT, and Markdown** files safely and locally.
 
-![PrivateAI](https://img.shields.io/badge/Privacy-100%25%20Offline-green) ![License](https://img.shields.io/badge/License-MIT-blue)
+![Offline](https://img.shields.io/badge/Mode-100%25%20Offline-success?style=for-the-badge)
+![Privacy](https://img.shields.io/badge/Privacy-Zero%20Telemetry-green?style=for-the-badge)
+![RAG](https://img.shields.io/badge/AI-RAG%20Enabled-purple?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.8+-3776ab?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+---
 
 ## ✨ Features
 
-- **100% Offline**: No data leaves your computer.
-- **RAG (Retrieval Augmented Generation)**: Upload documents and chat with them.
-- **Fast & Efficient**: Uses `llama3.2:1b` for quick responses on standard hardware.
-- **Persistent Memory**: Documents are stored locally in a vector database (`ChromaDB`).
-- **One-Click Run**: Simple `.bat` launcher for Windows.
+- 📴 **100% Offline** – No data leaves your computer
+- 📄 **RAG (Retrieval Augmented Generation)** – Chat with your documents
+- ⚡ **Fast & Efficient** – Uses `llama3.2:1b`
+- 🧠 **Persistent Memory** – Local storage via `ChromaDB`
+- 🖱️ **One-Click Run** – Windows `.bat` launcher
 
+---
 ## 🚀 Quick Start (Windows)
 
 ### Prerequisites
