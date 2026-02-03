@@ -1,4 +1,7 @@
 # 🛡️ IncognitoAI – Local Offline RAG Assistant
+<p align="center">
+  <img src="https://github.com/code-glitchers/IncognitoAI/blob/main/IncognitoAI.png" alt="IncognitoAI Logo" >
+</p>
 
 A fully private, **100% offline AI chat assistant** that runs on your local machine using [Ollama](https://ollama.com) and [Streamlit](https://streamlit.io).  
 Chat with your **PDF, TXT, and Markdown** files safely and locally.
