@@ -16,11 +16,11 @@ All notable changes to this project will be documented in this file.
 - **Automatic Diagnostics**: Built-in verification scripts to ensure Ollama and Python are running correctly.
 
 ### 🛠️ Technical Details
-- **Frontend**: Streamlit
+- **Frontend**: Streamlit & Flask (Cyberpunk Edition)
 - **LLM Engine**: Ollama (Llama 3.2)
 - **Embeddings**: all-minilm
 - **Database**: ChromaDB
-- **OS Support**: Windows 10/11
+- **OS Support**: Windows 10/11 & Linux (Ubuntu/Debian/Fedora)
 
 ---
 *For installation instructions, please refer to the README.*
