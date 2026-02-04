@@ -1,4 +1,4 @@
-# 🐧 IncognitoAI - Linux/macOS Setup Guide
+# 🐧 IncognitoAI - Linux/macOS Setup Guide(WORKS WINDOWS RUN bot.py)
 
 A complete Linux/macOS setup for IncognitoAI with both Streamlit and Flask-based Cyberpunk interfaces.
 
