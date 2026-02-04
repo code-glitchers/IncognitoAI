@@ -1,9 +1,10 @@
 # 🛡️ IncognitoAI – Local Offline RAG Assistant
+
 <p align="center">
   <img src="https://github.com/code-glitchers/IncognitoAI/blob/main/IncognitoAI.png" alt="IncognitoAI Logo" >
 </p>
 
-A fully private, **100% offline AI chat assistant** that runs on your local machine using [Ollama](https://ollama.com) and [Streamlit](https://streamlit.io).  
+A fully private, **100% offline AI chat assistant** that runs on your local machine using [Ollama](https://ollama.com) and [Streamlit](https://streamlit.io) or [Flask](https://flask.palletsprojects.com/).  
 Chat with your **PDF, TXT, and Markdown** files safely and locally.
 
 ![Offline](https://img.shields.io/badge/Mode-100%25%20Offline-success?style=for-the-badge)
@@ -18,62 +19,125 @@ Chat with your **PDF, TXT, and Markdown** files safely and locally.
 
 - 📴 **100% Offline** – No data leaves your computer
 - 📄 **RAG (Retrieval Augmented Generation)** – Chat with your documents
-- ⚡ **Fast & Efficient** – Uses `llama3.2:1b`
+- ⚡ **Fast & Efficient** – Uses `llama3.2:1b` model
 - 🧠 **Persistent Memory** – Local storage via `ChromaDB`
-- 🖱️ **One-Click Run** – Windows `.bat` launcher
+- 🖱️ **Multiple Interfaces** – Streamlit (web) & Flask Cyberpunk (modern UI)
+- 🐧 **Cross-Platform** – Works on Windows, macOS, and Linux
 
 ---
-## 🐧 Linux Support
 
-IncognitoAI now officially supports Linux! Check out our dedicated guide:
-👉 **[Linux Installation & Setup Guide](linux/README.md)**
+## 🖥️ Platform-Specific Setup
+
+### 🪟 Windows
+Run the one-click installer:
+```batch
+START_PRIVATEAI.bat
+```
+
+### 🐧 Linux / macOS
+Follow the **[Linux/macOS Installation & Setup Guide](linux/README.md)**
 
 ---
-## 🚀 Quick Start (Windows)
+
+## 🚀 Quick Start
 
 ### Prerequisites
-1. **Install Python 3.8+**: [python.org](https://www.python.org/downloads/)
-2. **Install Ollama**: [ollama.com](https://ollama.com/download/windows)
+- **Python 3.8+** 
+- **Ollama** ([ollama.com](https://ollama.com))
+- **Git** (to clone the repository)
 
-### Installation
+### Installation Steps
 
-1. Clone or download this repository.
-2. Run `START_PRIVATEAI.bat`
-   - It will automatically set up the virtual environment, install dependencies, download AI models, and launch the app!
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/code-glitchers/IncognitoAI.git
+   cd IncognitoAI
+   ```
 
-## 🛠️ Manual Installation
+2. **Run Setup** (Choose your platform)
+   - **Windows:** Double-click `START_PRIVATEAI.bat`
+   - **Linux/macOS:** `cd linux && chmod +x setup.sh && ./setup.sh`
 
-If you prefer using the command line:
+3. **Start Ollama** (in a separate terminal)
+   ```bash
+   ollama serve
+   ```
 
-```bash
-# 1. Create venv
-python -m venv venv
-.\venv\Scripts\activate
+4. **Launch the App**
+   - **Streamlit Version:**
+     ```bash
+     streamlit run app.py
+     ```
+   - **Flask Cyberpunk Version (Linux):**
+     ```bash
+     cd linux && chmod +x bot.sh && ./bot.sh
+     ```
 
-# 2. Install dependencies
-pip install -r requirements.txt
+---
 
-# 3. Pull models
-ollama pull llama3.2:1b
-ollama pull all-minilm
+## 📚 Usage
 
-# 4. Run app
-streamlit run app.py
-```
+### Streamlit Interface (app.py)
+- Open `http://localhost:8501`
+- Upload PDF, TXT, or Markdown files
+- Toggle RAG mode to search documents or ask general questions
+
+### Flask Cyberpunk Interface (bot.py - Linux)
+- Open `http://localhost:5000`
+- Dark-themed neon aesthetic
+- Real-time streaming responses
+- Toggle between RAG and general chat modes
+
+---
 
 ## 📦 Project Structure
 
-- `app.py`: Main Streamlit application.
-- `START_PRIVATEAI.bat`: One-click launcher.
-- `requirements.txt`: Python dependencies.
-- `.chroma_db/`: Local database (created on first run).
+```
+IncognitoAI/
+├── app.py                    # Streamlit application
+├── requirements.txt          # Python dependencies
+├── START_PRIVATEAI.bat       # Windows launcher
+├── linux/
+│   ├── bot.py               # Flask Cyberpunk app
+│   ├── setup.sh             # Linux setup script
+│   ├── start.sh             # Start Streamlit (Linux)
+│   ├── bot.sh               # Start Flask app (Linux)
+│   ├── templates/           # Flask HTML templates
+│   ├── static/              # CSS and JavaScript
+│   └── README.md            # Linux-specific guide
+└── .chroma_db/              # Local vector database (auto-created)
+```
 
-  
+---
+
+## 🛠️ Models Used
+
+- **LLM:** `llama3.2:1b` - Fast, efficient language model
+- **Embeddings:** `all-minilm:latest` - Fast embedding model for RAG
+
+Models are automatically downloaded on first run via Ollama.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Feel free to:
+- Report bugs and issues
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
+---
+
 ## 👥 Contributors and Developers
 
 [<img src="https://avatars.githubusercontent.com/u/67865621?s=64&v=4" width="64" height="64" alt="haybnzz">](https://github.com/h9zdev)
- [<img src="https://avatars.githubusercontent.com/u/108749445?s=64&v=4"  width="64" height="64" alt="VaradScript">](https://github.com/varadScript)
+[<img src="https://avatars.githubusercontent.com/u/108749445?s=64&v=4" width="64" height="64" alt="VaradScript">](https://github.com/varadScript)
+
+---
 
 ## 📝 License
 
 MIT License - feel free to modify and distribute!
+
+For questions or support, open an issue on [GitHub](https://github.com/code-glitchers/IncognitoAI/issues).

@@ -7,18 +7,16 @@ A complete Linux setup folder with **TWO interfaces** for IncognitoAI:
 ### Folder Structure
 ```
 linux/
-├── 📄 QUICKSTART.txt              ← START HERE! Quick reference guide
 ├── 📄 README.md                   ← Full documentation
-├── 🔧 setup.sh                    ← Automated setup script (make executable)
+├── 🔧 setup.sh                    ← Automated setup script
 ├── ▶️  start.sh                    ← Launch Streamlit version
-├── ▶️  start_cyberpunk.sh          ← Launch Flask Cyberpunk version
-├── 🐍 app_cyberpunk.py            ← Flask application
-├── 📝 requirements_flask.txt       ← Flask dependencies
+├── ▶️  bot.sh                      ← Launch Flask Cyberpunk version
+├── 🐍 bot.py                      ← Flask application with AI
 ├── 📁 templates/
-│   └── cyberpunk.html             ← Web interface
+│   └── bot.html                   ← Web interface
 └── 📁 static/
-    ├── cyberpunk.css              ← Neon cyberpunk styling
-    └── cyberpunk.js               ← Interactive features
+    ├── bot.css                    ← Cyberpunk styling
+    └── bot.js                     ← Interactive features
 ```
 
 ---
@@ -26,13 +24,13 @@ linux/
 ## 🎯 TWO INTERFACES AVAILABLE
 
 ### 1️⃣ **STREAMLIT VERSION** (Original)
-- **File:** `start.sh`
+- **Command:** `./start.sh`
 - **Port:** `http://localhost:8501`
 - **Features:** Simple, clean interface
 - **Best for:** Quick testing
 
 ### 2️⃣ **FLASK CYBERPUNK VERSION** (New!) ✨
-- **File:** `start_cyberpunk.sh`
+- **Command:** `./bot.sh`
 - **Port:** `http://localhost:5000`
 - **Features:**
   - 🌐 Beautiful neon cyberpunk aesthetic
@@ -51,7 +49,7 @@ linux/
 ### Step 1: Initial Setup (ONE TIME)
 ```bash
 cd linux
-chmod +x *.sh
+chmod +x setup.sh start.sh bot.sh
 ./setup.sh
 ```
 
@@ -70,9 +68,9 @@ ollama serve
 ### Step 3: Launch IncognitoAI (New Terminal)
 ```bash
 cd linux
-./start_cyberpunk.sh    # Flask Cyberpunk (recommended!)
+./bot.sh         # Flask Cyberpunk (recommended!)
 # OR
-./start.sh              # Streamlit version
+./start.sh       # Streamlit version
 ```
 
 ---
@@ -106,13 +104,12 @@ cd linux
 | File | Purpose |
 |------|---------|
 | `setup.sh` | Automated Linux setup - installs everything |
-| `start.sh` | Launches Streamlit interface |
-| `start_cyberpunk.sh` | Launches Flask Cyberpunk interface |
-| `app_cyberpunk.py` | Flask app with AI logic |
-| `cyberpunk.html` | Web page HTML |
-| `cyberpunk.css` | Neon cyberpunk styling |
-| `cyberpunk.js` | Interactive chat functionality |
-| `QUICKSTART.txt` | Quick reference guide |
+| `start.sh` | Launches Streamlit interface (app.py) |
+| `bot.sh` | Launches Flask Cyberpunk interface (bot.py) |
+| `bot.py` | Flask app with AI logic and web routes |
+| `bot.html` | Web page HTML structure |
+| `bot.css` | Neon cyberpunk styling |
+| `bot.js` | Interactive chat functionality |
 | `README.md` | Complete documentation |
 
 ---
@@ -120,14 +117,14 @@ cd linux
 ## 🔧 REQUIREMENTS
 
 ### System Requirements
-- **OS:** Linux (Ubuntu 20.04+, Debian, Fedora, etc.)
+- **OS:** Linux or macOS (Ubuntu 20.04+, Debian, Fedora, macOS 10.14+, etc.)
 - **Python:** 3.8 or higher
 - **RAM:** 4GB minimum (8GB recommended)
 - **Disk:** 2GB+ free space
 - **Internet:** For initial setup only
 
 ### Auto-Installed by Setup Script
-- Python packages (Flask, LangChain, ChromaDB, etc.)
+- Python packages (Flask, LangChain, ChromaDB, Streamlit, etc.)
 - Ollama (AI runtime)
 - AI models (llama3.2:1b, all-minilm)
 
@@ -139,7 +136,7 @@ cd linux
 ✅ **One-click setup** - Fully automated  
 ✅ **Two interfaces** - Streamlit + Flask Cyberpunk  
 ✅ **Beautiful design** - Modern cyberpunk aesthetic  
-✅ **Fast performance** - Optimized for Linux  
+✅ **Fast performance** - Optimized for Linux/macOS  
 ✅ **RAG support** - Chat with documents  
 ✅ **100% offline** - No data leaves your machine  
 ✅ **Easy to use** - Simple shell scripts  
@@ -151,7 +148,7 @@ cd linux
 
 ### Architecture
 ```
-Your Computer (Linux)
+Your Computer (Linux/macOS)
     ↓
 Ollama (AI Engine) - Port 11434
     ↓
@@ -201,22 +198,26 @@ curl -fsSL https://ollama.ai/install.sh | sh
 
 **Q: "Python not found"**
 ```bash
+# Ubuntu/Debian
 sudo apt-get update
 sudo apt-get install python3 python3-pip
+
+# macOS
+brew install python@3.11
 ```
 
 **Q: "Permission denied on script"**
 ```bash
-chmod +x setup.sh start.sh start_cyberpunk.sh
+chmod +x setup.sh start.sh bot.sh
 ```
 
 ### Runtime Issues
 
 **Q: "Connection refused" on port 5000**
 ```bash
-# Port already in use - edit app_cyberpunk.py:
-# Change: app.run(debug=True, host='0.0.0.0', port=5000)
-# To:     app.run(debug=True, host='0.0.0.0', port=5001)
+# Port already in use - edit bot.py:
+# Find: app.run(debug=True, host='0.0.0.0', port=5000)
+# Change to: app.run(debug=True, host='0.0.0.0', port=5001)
 ```
 
 **Q: "Ollama offline" warning**
@@ -243,11 +244,11 @@ ollama pull all-minilm
 
 ## 📚 DOCUMENTATION
 
-- **[QUICKSTART.txt](QUICKSTART.txt)** - Quick reference (read first!)
-- **[README.md](README.md)** - Complete guide
-- **[../README.md](../README.md)** - Main project docs
-- Ollama: https://ollama.ai
-- Flask: https://flask.palletsprojects.com
+- **[README.md](README.md)** - Complete Linux/macOS setup guide
+- **[../README.md](../README.md)** - Main project documentation
+- **Ollama:** https://ollama.ai
+- **Flask:** https://flask.palletsprojects.com
+- **Streamlit:** https://streamlit.io
 
 ---
 
@@ -255,43 +256,43 @@ ollama pull all-minilm
 
 1. **Use both interfaces** - Try Streamlit and Cyberpunk
 2. **Upload documents** - Test RAG with your PDFs
-3. **Clear cache** - Delete `.chroma_db` folder to reset
-4. **Change theme** - Edit `static/cyberpunk.css`
-5. **Different models** - Change `MODEL_NAME` in `app_cyberpunk.py`
+3. **Clear database** - Delete `.chroma_db` folder to reset
+4. **Customize theme** - Edit `static/bot.css`
+5. **Different models** - Change `MODEL_NAME` in `bot.py`
 
 ---
 
 ## 🎓 LEARNING PATH
 
-1. Run setup script
-2. Open QUICKSTART.txt
-3. Try Flask Cyberpunk version
+1. Run setup script: `./setup.sh`
+2. Read documentation: `README.md`
+3. Try Flask Cyberpunk: `./bot.sh`
 4. Upload a test document
 5. Explore RAG mode
-6. Read full README.md
-7. Customize and extend
+6. Customize and extend
 
 ---
 
 ## 📞 SUPPORT
 
 Having issues? Check:
-1. QUICKSTART.txt (this file) - Common issues
-2. README.md - Detailed guide
-3. ../README.md - Main documentation
-4. Terminal error messages - Usually very helpful
+1. README.md - Detailed setup guide
+2. ../README.md - Main documentation
+3. Terminal error messages - Usually very helpful
+4. GitHub Issues - Open an issue if stuck
 
 ---
 
 ## 🎉 YOU'RE ALL SET!
 
-Your Linux IncognitoAI setup is complete and ready to use.
+Your Linux/macOS IncognitoAI setup is complete and ready to use.
 
 ### Next Steps:
 1. Run `./setup.sh` in the linux folder
-2. Start Ollama in another terminal
-3. Launch the Cyberpunk interface
-4. Start chatting!
+2. Start Ollama in another terminal: `ollama serve`
+3. Launch the Cyberpunk interface: `./bot.sh`
+4. Open http://localhost:5000
+5. Start chatting!
 
 **Enjoy your private, offline AI assistant!** 🌐✨
 

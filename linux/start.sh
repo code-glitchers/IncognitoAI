@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# IncognitoAI Streamlit Starter (Linux)
-# Launch the IncognitoAI assistant
+# IncognitoAI Streamlit Starter (Linux/macOS)
+# Launch the IncognitoAI assistant with Streamlit
 
-echo "🚀 Starting IncognitoAI..."
+echo "🚀 Starting IncognitoAI Streamlit Assistant..."
 echo ""
 
 # Activate virtual environment
@@ -24,6 +24,9 @@ if ! curl -s http://localhost:11434 > /dev/null 2>&1; then
 fi
 
 # Start the Streamlit app
+echo ""
 echo "🎨 Launching IncognitoAI Assistant..."
+echo "📱 Opening browser at: http://localhost:8501"
 echo ""
 streamlit run ../app.py
+

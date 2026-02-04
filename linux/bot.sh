@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# IncognitoAI Cyberpunk Version Starter (Linux Flask)
-# Launch the cyberpunk Flask app
+# IncognitoAI Cyberpunk Flask Version Starter (Linux)
+# Launch the cyberpunk Flask app with bot.py
 
 echo "🚀 Starting IncognitoAI Cyberpunk Edition..."
 echo ""
@@ -24,7 +24,9 @@ if ! curl -s http://localhost:11434 > /dev/null 2>&1; then
 fi
 
 # Start the Flask app
-echo "🌐 Launching IncognitoAI Cyberpunk Edition..."
-echo "📱 Open browser and go to: http://localhost:5000"
 echo ""
-python app_cyberpunk.py
+echo "🌐 Launching IncognitoAI Cyberpunk Edition..."
+echo "📱 Opening browser at: http://localhost:5000"
+echo ""
+python bot.py
+
